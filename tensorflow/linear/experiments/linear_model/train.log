@@ -1,0 +1,205 @@
+2018-05-18 22:13:48,532:INFO: Creating the datasets...
+2018-05-18 22:13:48,586:INFO: - done.
+2018-05-18 22:13:48,586:INFO: Creating the model...
+2018-05-18 22:13:51,509:INFO: - done.
+2018-05-18 22:13:51,509:INFO: Starting training for 50 epoch(s)
+2018-05-18 22:13:52,540:INFO: Epoch 1/50
+2018-05-18 22:13:55,963:INFO: - Train metrics: correlation: 0.196 ; loss: 528.211
+2018-05-18 22:13:56,668:INFO: - Eval metrics: correlation: 0.275 ; loss: 104.550
+2018-05-18 22:13:56,753:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-1
+2018-05-18 22:13:56,753:INFO: Epoch 2/50
+2018-05-18 22:13:59,729:INFO: - Train metrics: correlation: 0.316 ; loss: 95.280
+2018-05-18 22:14:00,297:INFO: - Eval metrics: correlation: 0.456 ; loss: 75.908
+2018-05-18 22:14:00,369:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-2
+2018-05-18 22:14:00,369:INFO: Epoch 3/50
+2018-05-18 22:14:03,400:INFO: - Train metrics: correlation: 0.507 ; loss: 68.643
+2018-05-18 22:14:03,975:INFO: - Eval metrics: correlation: 0.625 ; loss: 54.110
+2018-05-18 22:14:04,046:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-3
+2018-05-18 22:14:04,047:INFO: Epoch 4/50
+2018-05-18 22:14:07,085:INFO: - Train metrics: correlation: 0.657 ; loss: 50.220
+2018-05-18 22:14:07,648:INFO: - Eval metrics: correlation: 0.731 ; loss: 40.829
+2018-05-18 22:14:07,721:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-4
+2018-05-18 22:14:07,721:INFO: Epoch 5/50
+2018-05-18 22:14:10,667:INFO: - Train metrics: correlation: 0.744 ; loss: 39.211
+2018-05-18 22:14:11,232:INFO: - Eval metrics: correlation: 0.787 ; loss: 33.474
+2018-05-18 22:14:11,304:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-5
+2018-05-18 22:14:11,305:INFO: Epoch 6/50
+2018-05-18 22:14:14,394:INFO: - Train metrics: correlation: 0.790 ; loss: 32.848
+2018-05-18 22:14:14,971:INFO: - Eval metrics: correlation: 0.817 ; loss: 29.458
+2018-05-18 22:14:15,043:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-6
+2018-05-18 22:14:15,044:INFO: Epoch 7/50
+2018-05-18 22:14:17,995:INFO: - Train metrics: correlation: 0.818 ; loss: 28.997
+2018-05-18 22:14:18,564:INFO: - Eval metrics: correlation: 0.836 ; loss: 27.135
+2018-05-18 22:14:18,635:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-7
+2018-05-18 22:14:18,635:INFO: Epoch 8/50
+2018-05-18 22:14:21,640:INFO: - Train metrics: correlation: 0.835 ; loss: 26.446
+2018-05-18 22:14:22,212:INFO: - Eval metrics: correlation: 0.848 ; loss: 25.489
+2018-05-18 22:14:22,284:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-8
+2018-05-18 22:14:22,284:INFO: Epoch 9/50
+2018-05-18 22:14:25,281:INFO: - Train metrics: correlation: 0.848 ; loss: 24.598
+2018-05-18 22:14:25,854:INFO: - Eval metrics: correlation: 0.858 ; loss: 24.066
+2018-05-18 22:14:25,924:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-9
+2018-05-18 22:14:25,924:INFO: Epoch 10/50
+2018-05-18 22:14:28,910:INFO: - Train metrics: correlation: 0.857 ; loss: 23.211
+2018-05-18 22:14:29,485:INFO: - Eval metrics: correlation: 0.865 ; loss: 22.775
+2018-05-18 22:14:29,557:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-10
+2018-05-18 22:14:29,557:INFO: Epoch 11/50
+2018-05-18 22:14:32,535:INFO: - Train metrics: correlation: 0.864 ; loss: 22.195
+2018-05-18 22:14:33,098:INFO: - Eval metrics: correlation: 0.871 ; loss: 21.691
+2018-05-18 22:14:33,168:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-11
+2018-05-18 22:14:33,168:INFO: Epoch 12/50
+2018-05-18 22:14:36,109:INFO: - Train metrics: correlation: 0.868 ; loss: 21.486
+2018-05-18 22:14:36,685:INFO: - Eval metrics: correlation: 0.875 ; loss: 20.899
+2018-05-18 22:14:36,756:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-12
+2018-05-18 22:14:36,757:INFO: Epoch 13/50
+2018-05-18 22:14:39,738:INFO: - Train metrics: correlation: 0.872 ; loss: 21.014
+2018-05-18 22:14:40,313:INFO: - Eval metrics: correlation: 0.877 ; loss: 20.376
+2018-05-18 22:14:40,385:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-13
+2018-05-18 22:14:40,385:INFO: Epoch 14/50
+2018-05-18 22:14:43,443:INFO: - Train metrics: correlation: 0.874 ; loss: 20.711
+2018-05-18 22:14:44,017:INFO: - Eval metrics: correlation: 0.879 ; loss: 20.045
+2018-05-18 22:14:44,088:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-14
+2018-05-18 22:14:44,089:INFO: Epoch 15/50
+2018-05-18 22:14:47,015:INFO: - Train metrics: correlation: 0.875 ; loss: 20.521
+2018-05-18 22:14:47,584:INFO: - Eval metrics: correlation: 0.880 ; loss: 19.841
+2018-05-18 22:14:47,655:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-15
+2018-05-18 22:14:47,655:INFO: Epoch 16/50
+2018-05-18 22:14:50,639:INFO: - Train metrics: correlation: 0.876 ; loss: 20.404
+2018-05-18 22:14:51,208:INFO: - Eval metrics: correlation: 0.880 ; loss: 19.716
+2018-05-18 22:14:51,278:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-16
+2018-05-18 22:14:51,278:INFO: Epoch 17/50
+2018-05-18 22:14:54,229:INFO: - Train metrics: correlation: 0.876 ; loss: 20.330
+2018-05-18 22:14:54,805:INFO: - Eval metrics: correlation: 0.880 ; loss: 19.639
+2018-05-18 22:14:54,875:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-17
+2018-05-18 22:14:54,876:INFO: Epoch 18/50
+2018-05-18 22:14:57,847:INFO: - Train metrics: correlation: 0.876 ; loss: 20.283
+2018-05-18 22:14:58,417:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.592
+2018-05-18 22:14:58,489:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-18
+2018-05-18 22:14:58,489:INFO: Epoch 19/50
+2018-05-18 22:15:01,509:INFO: - Train metrics: correlation: 0.877 ; loss: 20.252
+2018-05-18 22:15:02,079:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.562
+2018-05-18 22:15:02,150:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-19
+2018-05-18 22:15:02,151:INFO: Epoch 20/50
+2018-05-18 22:15:05,108:INFO: - Train metrics: correlation: 0.877 ; loss: 20.231
+2018-05-18 22:15:05,681:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.542
+2018-05-18 22:15:05,752:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-20
+2018-05-18 22:15:05,752:INFO: Epoch 21/50
+2018-05-18 22:15:08,737:INFO: - Train metrics: correlation: 0.877 ; loss: 20.217
+2018-05-18 22:15:09,305:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.529
+2018-05-18 22:15:09,375:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-21
+2018-05-18 22:15:09,375:INFO: Epoch 22/50
+2018-05-18 22:15:12,348:INFO: - Train metrics: correlation: 0.877 ; loss: 20.206
+2018-05-18 22:15:12,923:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.521
+2018-05-18 22:15:12,994:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-22
+2018-05-18 22:15:12,994:INFO: Epoch 23/50
+2018-05-18 22:15:15,988:INFO: - Train metrics: correlation: 0.877 ; loss: 20.199
+2018-05-18 22:15:16,562:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.515
+2018-05-18 22:15:16,632:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-23
+2018-05-18 22:15:16,632:INFO: Epoch 24/50
+2018-05-18 22:15:19,586:INFO: - Train metrics: correlation: 0.877 ; loss: 20.193
+2018-05-18 22:15:20,156:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.510
+2018-05-18 22:15:20,226:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-24
+2018-05-18 22:15:20,226:INFO: Epoch 25/50
+2018-05-18 22:15:23,211:INFO: - Train metrics: correlation: 0.877 ; loss: 20.188
+2018-05-18 22:15:23,778:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.507
+2018-05-18 22:15:23,847:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-25
+2018-05-18 22:15:23,847:INFO: Epoch 26/50
+2018-05-18 22:15:26,881:INFO: - Train metrics: correlation: 0.877 ; loss: 20.185
+2018-05-18 22:15:27,438:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.504
+2018-05-18 22:15:27,508:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-26
+2018-05-18 22:15:27,508:INFO: Epoch 27/50
+2018-05-18 22:15:30,552:INFO: - Train metrics: correlation: 0.877 ; loss: 20.182
+2018-05-18 22:15:31,127:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.502
+2018-05-18 22:15:31,197:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-27
+2018-05-18 22:15:31,198:INFO: Epoch 28/50
+2018-05-18 22:15:34,159:INFO: - Train metrics: correlation: 0.877 ; loss: 20.180
+2018-05-18 22:15:34,734:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.500
+2018-05-18 22:15:34,805:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-28
+2018-05-18 22:15:34,806:INFO: Epoch 29/50
+2018-05-18 22:15:37,800:INFO: - Train metrics: correlation: 0.877 ; loss: 20.178
+2018-05-18 22:15:38,369:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.499
+2018-05-18 22:15:38,440:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-29
+2018-05-18 22:15:38,441:INFO: Epoch 30/50
+2018-05-18 22:15:41,427:INFO: - Train metrics: correlation: 0.877 ; loss: 20.176
+2018-05-18 22:15:41,997:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.498
+2018-05-18 22:15:42,069:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-30
+2018-05-18 22:15:42,069:INFO: Epoch 31/50
+2018-05-18 22:15:44,975:INFO: - Train metrics: correlation: 0.877 ; loss: 20.174
+2018-05-18 22:15:45,550:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.496
+2018-05-18 22:15:45,620:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-31
+2018-05-18 22:15:45,621:INFO: Epoch 32/50
+2018-05-18 22:15:48,563:INFO: - Train metrics: correlation: 0.877 ; loss: 20.173
+2018-05-18 22:15:49,131:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.495
+2018-05-18 22:15:49,202:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-32
+2018-05-18 22:15:49,203:INFO: Epoch 33/50
+2018-05-18 22:15:52,205:INFO: - Train metrics: correlation: 0.877 ; loss: 20.172
+2018-05-18 22:15:52,780:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.494
+2018-05-18 22:15:52,850:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-33
+2018-05-18 22:15:52,850:INFO: Epoch 34/50
+2018-05-18 22:15:55,806:INFO: - Train metrics: correlation: 0.877 ; loss: 20.171
+2018-05-18 22:15:56,375:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.493
+2018-05-18 22:15:56,446:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-34
+2018-05-18 22:15:56,446:INFO: Epoch 35/50
+2018-05-18 22:15:59,376:INFO: - Train metrics: correlation: 0.877 ; loss: 20.170
+2018-05-18 22:15:59,950:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.492
+2018-05-18 22:16:00,020:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-35
+2018-05-18 22:16:00,020:INFO: Epoch 36/50
+2018-05-18 22:16:02,993:INFO: - Train metrics: correlation: 0.877 ; loss: 20.169
+2018-05-18 22:16:03,562:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.492
+2018-05-18 22:16:03,633:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-36
+2018-05-18 22:16:03,633:INFO: Epoch 37/50
+2018-05-18 22:16:06,681:INFO: - Train metrics: correlation: 0.877 ; loss: 20.169
+2018-05-18 22:16:07,247:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.491
+2018-05-18 22:16:07,317:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-37
+2018-05-18 22:16:07,318:INFO: Epoch 38/50
+2018-05-18 22:16:10,398:INFO: - Train metrics: correlation: 0.877 ; loss: 20.168
+2018-05-18 22:16:11,020:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.490
+2018-05-18 22:16:11,091:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-38
+2018-05-18 22:16:11,092:INFO: Epoch 39/50
+2018-05-18 22:16:14,052:INFO: - Train metrics: correlation: 0.877 ; loss: 20.167
+2018-05-18 22:16:14,627:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.489
+2018-05-18 22:16:14,742:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-39
+2018-05-18 22:16:14,742:INFO: Epoch 40/50
+2018-05-18 22:16:17,690:INFO: - Train metrics: correlation: 0.877 ; loss: 20.167
+2018-05-18 22:16:18,264:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.488
+2018-05-18 22:16:18,340:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-40
+2018-05-18 22:16:18,340:INFO: Epoch 41/50
+2018-05-18 22:16:21,287:INFO: - Train metrics: correlation: 0.877 ; loss: 20.166
+2018-05-18 22:16:21,864:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.488
+2018-05-18 22:16:21,934:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-41
+2018-05-18 22:16:21,934:INFO: Epoch 42/50
+2018-05-18 22:16:24,952:INFO: - Train metrics: correlation: 0.877 ; loss: 20.166
+2018-05-18 22:16:25,531:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.487
+2018-05-18 22:16:25,601:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-42
+2018-05-18 22:16:25,602:INFO: Epoch 43/50
+2018-05-18 22:16:28,568:INFO: - Train metrics: correlation: 0.877 ; loss: 20.165
+2018-05-18 22:16:29,139:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.486
+2018-05-18 22:16:29,209:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-43
+2018-05-18 22:16:29,210:INFO: Epoch 44/50
+2018-05-18 22:16:32,181:INFO: - Train metrics: correlation: 0.877 ; loss: 20.165
+2018-05-18 22:16:32,749:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.486
+2018-05-18 22:16:32,819:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-44
+2018-05-18 22:16:32,820:INFO: Epoch 45/50
+2018-05-18 22:16:35,775:INFO: - Train metrics: correlation: 0.877 ; loss: 20.165
+2018-05-18 22:16:36,350:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.485
+2018-05-18 22:16:36,421:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-45
+2018-05-18 22:16:36,421:INFO: Epoch 46/50
+2018-05-18 22:16:39,334:INFO: - Train metrics: correlation: 0.877 ; loss: 20.164
+2018-05-18 22:16:39,909:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.485
+2018-05-18 22:16:39,980:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-46
+2018-05-18 22:16:39,980:INFO: Epoch 47/50
+2018-05-18 22:16:42,948:INFO: - Train metrics: correlation: 0.877 ; loss: 20.164
+2018-05-18 22:16:43,518:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.484
+2018-05-18 22:16:43,588:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-47
+2018-05-18 22:16:43,589:INFO: Epoch 48/50
+2018-05-18 22:16:46,481:INFO: - Train metrics: correlation: 0.877 ; loss: 20.164
+2018-05-18 22:16:47,045:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.484
+2018-05-18 22:16:47,117:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-48
+2018-05-18 22:16:47,117:INFO: Epoch 49/50
+2018-05-18 22:16:50,043:INFO: - Train metrics: correlation: 0.877 ; loss: 20.163
+2018-05-18 22:16:50,615:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.483
+2018-05-18 22:16:50,686:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-49
+2018-05-18 22:16:50,686:INFO: Epoch 50/50
+2018-05-18 22:16:53,715:INFO: - Train metrics: correlation: 0.877 ; loss: 20.163
+2018-05-18 22:16:54,290:INFO: - Eval metrics: correlation: 0.881 ; loss: 19.483
+2018-05-18 22:16:54,361:INFO: - Found new best accuracy, saving in experiments/linear_model/best_weights/after-epoch-50
