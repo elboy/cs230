@@ -37,10 +37,10 @@ def train(model, criterion, optimizer, args, dataloader, dataset_size, device):
         labels = labels.float()
 
         
-        y_true += labels.numpy().squeeze().tolist()
+        y_true += labels.cpu().numpy().squeeze().tolist()
         
         preds = model(inputs)
-        y_pred += preds.detach().numpy().squeeze().tolist()
+        y_pred += preds.cpu()detach().numpy().squeeze().tolist()
         
         loss = criterion(preds, labels)
         optimizer.zero_grad()

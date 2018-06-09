@@ -41,12 +41,12 @@ def test(model, criterion, dataloader, dataset_size, device):
             years = years.float()
             player_ids_list += list(player_ids)
 
-            y_true += labels.numpy().squeeze().tolist()
+            y_true += labels.cpu().numpy().squeeze().tolist()
             years_list += years.numpy().squeeze().tolist()
 
 
             preds = model(inputs)
-            y_pred += preds.numpy().squeeze().tolist()
+            y_pred += preds.cpu().numpy().squeeze().tolist()
             loss = criterion(preds, labels)
             test_loss += loss
 
