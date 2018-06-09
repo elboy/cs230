@@ -31,8 +31,8 @@ def train(model, criterion, optimizer, args, dataloader, dataset_size, device):
 
     for batch_idx, (inputs, labels, _, _) in enumerate(dataloader):
         # might need this for gpu
-        # inputs = inputs.to(device)
-        # labels = labels.to(device)
+        inputs = inputs.to(device)
+        labels = labels.to(device)
         inputs = inputs.float()
         labels = labels.float()
 

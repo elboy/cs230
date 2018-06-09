@@ -34,8 +34,8 @@ def test(model, criterion, dataloader, dataset_size, device):
         # player_id is tuple of strings
         for inputs, labels, player_ids, years in dataloader:
             # might need this for gpu
-            # inputs = inputs.to(device)
-            # labels = labels.to(device)
+            inputs = inputs.to(device)
+            labels = labels.to(device)
             inputs = inputs.float()
             labels = labels.float()
             years = years.float()
