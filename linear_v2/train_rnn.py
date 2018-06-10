@@ -38,6 +38,8 @@ arg_parser.add_argument("--hidden-size", type=int, default=20,
                               help="hidden size for RNN")
 arg_parser.add_argument("--n-layers", type=int, default=1,
                               help="number of layers for RNN")
+arg_parser.add_argument("--random-seq", action='store_true', default=False,
+                              help="random subsequence of RNN input")
 arg_parser.add_argument("--weight-decay", type=float, default=0,
                               help="weight decay")
 arg_parser.add_argument("--batch-size", type=int, default=32,
@@ -47,7 +49,7 @@ arg_parser.add_argument("--log-epoch-interval", type=int, default=20,
 arg_parser.add_argument('--no-cuda', action='store_true', default=False,
                         help='disables CUDA training')
 arg_parser.add_argument('--seed', type=int, default=42, metavar='S',
-                        help='random seed (default: 42)')
+                        help='random seed (default: 42 for jackie robinson)')
 #arg_parser.add_argument("--preload-model", type=str, default=None, help="directory of stored model")
 arg_parser.add_argument("--verbose", action="store_true")
 args = arg_parser.parse_args()
@@ -60,7 +62,7 @@ if __name__ == '__main__':
     # model_dir_has_best_weights = os.path.isdir(os.path.join(args.model_dir, "best_weights"))
     # overwritting = model_dir_has_best_weights and args.restore_dir is None
     # assert not overwritting, "Weights found in model_dir, aborting to avoid overwrite"
-
+    
     use_cuda = not args.no_cuda and torch.cuda.is_available()
     torch.manual_seed(args.seed)
     device = torch.device("cuda" if use_cuda else "cpu")
@@ -69,8 +71,8 @@ if __name__ == '__main__':
     # Set the logger
     # set_logger(os.path.join(args.model_dir, 'train.log'))
     print("Downloading datasets")
-    train_dl, train_sz = load_dataset(args, 'train.pkl', rnn=True)
-    dev_dl, dev_sz = load_dataset(args, 'dev.pkl', rnn=True)
+    train_dl, train_sz = load_dataset(args, 'train.pkl', rnn=True, rnn_rand_seq=args.random_seq)
+    dev_dl, dev_sz = load_dataset(args, 'dev.pkl', rnn=True, rnn_rand_seq=False)
     print("- done.")
 
     # Define the models (2 different set of nodes that share weights for train and eval)

@@ -1,5 +1,6 @@
 import os
 import pickle
+import random
 import numpy as np
 import pandas as pd
 import torch
@@ -63,7 +64,7 @@ class BaseballLKNNDataset(Dataset):
 
 class BaseballRNNDataset(Dataset):
 
-    def __init__(self, df_split, transform=None):
+    def __init__(self, df_split, random_seq=False, transform=None):
         """
         Args:
             transform (callable, optional): Optional transform to be applied
@@ -72,6 +73,7 @@ class BaseballRNNDataset(Dataset):
         self.df_split = df_split
         self.df_split = self.df_split.reset_index(drop=True)
         self.rnn_dset = pickle.load( open( "data/kaggle/rnn.pkl", "rb" ) )
+        self.random_seq = random_seq
         self.transform = transform
 
     def __len__(self):
@@ -84,13 +86,17 @@ class BaseballRNNDataset(Dataset):
         year = self.df_split.loc[idx, 'yearID']
 
         features = self.rnn_dset[(player_id, year)]
+        if self.random_seq:
+            seq_len = features.shape[0]
+            drop_timesteps = random.randint(0, seq_len - 1)
+            features = features[drop_timesteps:]
 
         sample = (features, labels.reshape(1), player_id, year)
         return sample
 
 
 
-def load_dataset(args, dset_ext, last_k=False, k=None, rnn=False):
+def load_dataset(args, dset_ext, last_k=False, k=None, rnn=False, rnn_rand_seq=False):
     # Get paths for dataset
     print("Dowmloading path: {}".format(os.path.join(os.getcwd(), args.data_dir, dset_ext)))
     dset_path = os.path.join(os.getcwd(), args.data_dir, dset_ext)
@@ -105,15 +111,15 @@ def load_dataset(args, dset_ext, last_k=False, k=None, rnn=False):
     if last_k:
         dset = BaseballLKNNDataset(dset_df, k)
     elif rnn:
-        dset = BaseballRNNDataset(dset_df)
+        dset = BaseballRNNDataset(dset_df, rnn_rand_seq)
     else:
         dset = BaseballNNDataset(dset_df, df)
 
 
     if rnn:
-        dataloader = DataLoader(dset, batch_size=1, shuffle=True, num_workers=1)
+        dataloader = DataLoader(dset, batch_size=1, shuffle=True, num_workers=4)
     else: 
-        dataloader = DataLoader(dset, batch_size=args.batch_size, shuffle=True, num_workers=1)
+        dataloader = DataLoader(dset, batch_size=args.batch_size, shuffle=True, num_workers=4)
     dataset_size = len(dset)
     print(dataset_size, "rows")
     print(" - done.")
