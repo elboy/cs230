@@ -4,7 +4,7 @@ import logging
 import os
 import time
 import sys
-
+import numpy as np
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
@@ -75,3 +75,74 @@ def train(model, criterion, optimizer, args, dataloader, dataset_size, device):
         save_model_path = os.path.join(home_dir, "models/", model_name, epoch_prefix, "saved_model.model")
         torch.save(model.state_dict(), save_model_path)
     """
+
+
+
+
+def rnn_train(model, criterion, optimizer, args, dataloader, dataset_size, device):
+    """Train the model and evaluate every epoch.
+
+    Args:
+        train_model_spec: (dict) contains the graph operations or nodes needed for training
+        eval_model_spec: (dict) contains the graph operations or nodes needed for evaluation
+        model_dir: (string) directory containing config, weights and log
+        params: (Params) contains hyperparameters of the model.
+                Must define: num_epochs, train_size, batch_size, eval_size, save_summary_steps
+        restore_from: (string) directory or file containing weights to restore the graph
+    """
+
+    model.train()
+
+    y_true = []
+    y_pred = []
+    
+    running_loss = 0.0
+
+    for batch_idx, (inputs, labels, _, _) in enumerate(dataloader):
+        # might need this for gpu
+        inputs = inputs.to(device)
+        labels = labels.to(device)
+        inputs = inputs.float()
+        labels = labels.float()
+        
+        """
+        print("inputs")
+        print(type(inputs))
+        print(inputs.type())
+        print(inputs.shape)
+        print(inputs)
+        print("labels")
+        print(type(labels))
+        print(labels.type())
+        print(labels.shape)
+        print(labels)
+        """
+        
+        batch_labels = np.reshape(labels.cpu().numpy(), -1).tolist()
+        y_true += batch_labels
+        
+        preds = model(inputs)
+
+        """
+        print("preds")
+        print(type(preds))
+        print(preds.type())
+        print(preds.shape)
+        print(preds)
+        print("=======")
+        """
+        
+        y_pred += np.reshape(preds.cpu().detach().numpy(), -1).tolist()
+        
+        loss = criterion(preds, labels)
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        if args.verbose:
+            print("Batch", i, "Loss:", loss)
+
+        running_loss += loss
+
+    epoch_loss = running_loss / dataset_size
+    return (model, y_true, y_pred, epoch_loss)

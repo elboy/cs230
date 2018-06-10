@@ -30,6 +30,8 @@ arg_parser.add_argument('--data_dir', default='data/kaggle', help="Directory con
 
 arg_parser.add_argument("--name", type=str, default=None,
                               help="name for the model")
+arg_parser.add_argument("--k-years", type=int, default=5,
+                              help="how many years to look back")
 arg_parser.add_argument("--epochs", type=int, default=50,
                               help="number of training epochs, default is 10")
 arg_parser.add_argument("--lr", type=float, default=1e-3,
@@ -65,13 +67,13 @@ if __name__ == '__main__':
     # Set the logger
     # set_logger(os.path.join(args.model_dir, 'train.log'))
     print("Downloading datasets")
-    train_dl, train_sz = load_dataset(args, 'train.pkl', True)
-    dev_dl, dev_sz = load_dataset(args, 'dev.pkl', True)
+    train_dl, train_sz = load_dataset(args, 'train.pkl', True, args.k_years)
+    dev_dl, dev_sz = load_dataset(args, 'dev.pkl', True, args.k_years)
     print("- done.")
 
     # Define the models (2 different set of nodes that share weights for train and eval)
     print("Creating the model...")
-    model = BaseballFCN(85).to(device)
+    model = BaseballFCN(17 * args.k_years).to(device)
     if use_cuda:
         model = model.cuda()
     print("- done.")
@@ -124,9 +126,9 @@ if __name__ == '__main__':
 
 
     #model.cpu()
-    model = model.load_state_dict(best_model_wts)
-    save_model_path = os.path.join("models", "lastk_50epochs_85features.model")
-    torch.save(model.state_dict(), save_model_path)
+    #model.load_state_dict(best_model_wts)
+    #save_model_path = os.path.join("models", "lastk_50epochs_85features.model")
+    #torch.save(model.state_dict(), save_model_path)
     #return model
 
 

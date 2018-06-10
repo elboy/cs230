@@ -1,4 +1,5 @@
 import os
+import pickle
 import numpy as np
 import pandas as pd
 import torch
@@ -31,9 +32,9 @@ class BaseballNNDataset(Dataset):
         return sample
 
 
-class BaseballL5NNDataset(Dataset):
+class BaseballLKNNDataset(Dataset):
 
-    def __init__(self, df_split, df_full, transform=None):
+    def __init__(self, df_split, k, transform=None):
         """
         Args:
             transform (callable, optional): Optional transform to be applied
@@ -41,7 +42,8 @@ class BaseballL5NNDataset(Dataset):
         """
         self.df_split = df_split
         self.df_split = self.df_split.reset_index(drop=True)
-        self.df_full = df_full
+        self.last5_dset = pickle.load( open( "data/kaggle/last5.pkl", "rb" ) )
+        self.k = k
         self.transform = transform
 
     def __len__(self):
@@ -53,25 +55,42 @@ class BaseballL5NNDataset(Dataset):
         player_id = self.df_split.loc[idx, 'playerID']
         year = self.df_split.loc[idx, 'yearID']
 
-        player_prev_seasons = self.df_full[(self.df_full['playerID'] == player_id) & self.df_full['yearID'].isin(range(year - 5 + 1, year + 1))]
-
-
-        next_fill = player_prev_seasons.loc[player_prev_seasons['yearID'].idxmax()]
-        for year_index in range(year, year - 5, -1):
-            row = player_prev_seasons[player_prev_seasons['yearID'] == year_index]
-            if row.empty:
-                next_fill['yearID'] = year_index
-                player_prev_seasons = player_prev_seasons.append(next_fill)
-            else:
-                next_fill = row
-
-        player_prev_seasons = player_prev_seasons.sort_values(by='yearID', ascending=True)
-        features = np.array(player_prev_seasons.values)[:, 2:-1].flatten().astype(np.float32)
+        features = self.last5_dset[(player_id, year)]
+        features = features[(5 - self.k) * 17 :]
 
         sample = (features, labels.reshape(1), player_id, year)
         return sample
 
-def load_dataset(args, dset_ext, last_k=False):
+class BaseballRNNDataset(Dataset):
+
+    def __init__(self, df_split, transform=None):
+        """
+        Args:
+            transform (callable, optional): Optional transform to be applied
+                on a sample.
+        """
+        self.df_split = df_split
+        self.df_split = self.df_split.reset_index(drop=True)
+        self.rnn_dset = pickle.load( open( "data/kaggle/rnn.pkl", "rb" ) )
+        self.transform = transform
+
+    def __len__(self):
+        return self.df_split.shape[0]
+
+    def __getitem__(self, idx):
+        #sample = {'x': self.x[idx], 'y': self.y[idx]}
+        labels = np.array(self.df_split.loc[idx, 'label'])
+        player_id = self.df_split.loc[idx, 'playerID']
+        year = self.df_split.loc[idx, 'yearID']
+
+        features = self.rnn_dset[(player_id, year)]
+
+        sample = (features, labels.reshape(1), player_id, year)
+        return sample
+
+
+
+def load_dataset(args, dset_ext, last_k=False, k=None, rnn=False):
     # Get paths for dataset
     print("Dowmloading path: {}".format(os.path.join(os.getcwd(), args.data_dir, dset_ext)))
     dset_path = os.path.join(os.getcwd(), args.data_dir, dset_ext)
@@ -84,13 +103,18 @@ def load_dataset(args, dset_ext, last_k=False):
     df = pd.read_pickle(path_df)
 
     if last_k:
-        dset = BaseballL5NNDataset(dset_df, df)
+        dset = BaseballLKNNDataset(dset_df, k)
+    elif rnn:
+        dset = BaseballRNNDataset(dset_df)
     else:
         dset = BaseballNNDataset(dset_df, df)
 
 
-
-    dataloader = DataLoader(dset, batch_size=args.batch_size, shuffle=True, num_workers=1)
+    if rnn:
+        dataloader = DataLoader(dset, batch_size=1, shuffle=True, num_workers=1)
+    else: 
+        dataloader = DataLoader(dset, batch_size=args.batch_size, shuffle=True, num_workers=1)
     dataset_size = len(dset)
     print(dataset_size, "rows")
+    print(" - done.")
     return dataloader, dataset_size

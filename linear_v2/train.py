@@ -11,8 +11,8 @@ import torch.optim as optim
 from sklearn import metrics
 #from model.utils import Params
 #from model.utils import set_logger
-from model.training import train
-from model.evaluation import test
+from model.training import train, rnn_train
+from model.evaluation import test, rnn_test
 from model.input_fn import load_dataset
 from model.model_fn import BaseballFCN
 import matplotlib.pyplot as plt
@@ -72,8 +72,6 @@ if __name__ == '__main__':
     # Define the models (2 different set of nodes that share weights for train and eval)
     print("Creating the model...")
     model = BaseballFCN(17).to(device)
-    if use_cuda:
-        model = model.cuda()
     print("- done.")
 
     criterion = nn.MSELoss()
@@ -96,13 +94,13 @@ if __name__ == '__main__':
         print(time.ctime())
         
 
-        model, y_true, y_pred, train_loss = train(model, criterion, optimizer, args, train_dl, train_sz, device)
+        model, y_true, y_pred, train_loss = rnn_train(model, criterion, optimizer, args, train_dl, train_sz, device)
         epoch_r2 = metrics.r2_score(y_true, y_pred)
         print("{} Loss: {:.4f} R2: {:.4f}".format("train", train_loss, epoch_r2))
         losses["train"].append(train_loss)
         r2s["train"].append(epoch_r2)
 
-        y_true, y_pred, player_ids, years, test_loss = test(model, criterion, dev_dl, dev_sz, device)
+        y_true, y_pred, player_ids, years, test_loss = rnn_test(model, criterion, dev_dl, dev_sz, device)
 
         epoch_r2 = metrics.r2_score(y_true, y_pred)
         losses["val"].append(test_loss)
