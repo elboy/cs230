@@ -23,17 +23,18 @@ class BaseballFCN(nn.Module):
 
 
 class BaseballRNN(nn.Module):
-    def __init__(self, input_size, hidden_size, num_layers):
+    def __init__(self, input_size, hidden_size, num_layers, device):
         super(BaseballRNN, self).__init__()
         self.hidden_size = hidden_size
         self.num_layers = num_layers
         #  If True, then the input and output tensors are provided as (batch, seq, feature)
         self.rnn = nn.RNN(input_size, hidden_size, num_layers, batch_first=True)
         self.fc = nn.Linear(hidden_size, 1)
+        self.device = device
     
     def forward(self, x):
         # Set initial hidden and cell states 
-        h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size)
+        h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(self.device)
         # input must be (batch, seq, features)
         output, hn = self.rnn(x, h0)
         pred = self.fc(output[:, -1, :])

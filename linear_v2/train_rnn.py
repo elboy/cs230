@@ -76,7 +76,7 @@ if __name__ == '__main__':
     # Define the models (2 different set of nodes that share weights for train and eval)
     print("Creating the model...")
     input_size = 17
-    model = BaseballRNN(input_size, args.hidden_size, args.n_layers).to(device)
+    model = BaseballRNN(input_size, args.hidden_size, args.n_layers, device).to(device)
     print("- done.")
 
     criterion = nn.MSELoss()
